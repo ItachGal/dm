@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import db from '../../firebase';
 import "./Chat.css"
 function Chat() {
-    const [seed, setSeed] = useState('')
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('')
     const { roomId } = useParams();
