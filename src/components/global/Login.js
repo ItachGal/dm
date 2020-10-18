@@ -6,16 +6,20 @@ import { useStateValue } from '../../StateProvider'
 import "./Login.css"
 
 function Login() {
-    const [{}, dispatch] = useStateValue();
+    const [, dispatch] = useStateValue();
     const [keepaliveFlag, setKeepaliveFlag] = useState(false);
 
     const signIn = () =>{
         auth.signInWithPopup(provider).then( 
-            result => {dispatch({
-                type: actionTypes.SET_USER,
-                user: result.user,
-                keepalive: keepaliveFlag
-            });
+            result => {
+                dispatch({
+                    type: actionTypes.SET_USER,
+                    user: result.user,
+                    keepalive: keepaliveFlag
+                });
+                if (keepaliveFlag){
+                    localStorage.setItem('user', JSON.stringify(result.user));
+                }
         }).catch( error => alert(JSON.stringify({keepaliveFlag})));
     }
     return (
