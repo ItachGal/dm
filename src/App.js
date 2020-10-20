@@ -10,7 +10,7 @@ import { actionTypes } from './reducer';
 function App() {
   const [{user}, dispatch] = useStateValue();  
   useEffect(() => {
-    const tmpUser = localStorage.getItem('user');
+    const tmpUser = sessionStorage.getItem('user');
     if (tmpUser){
       dispatch({
         type: actionTypes.SET_USER,

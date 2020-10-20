@@ -14,11 +14,10 @@ function Login() {
             result => {
                 dispatch({
                     type: actionTypes.SET_USER,
-                    user: result.user,
-                    keepalive: keepaliveFlag
+                    user: result.user
                 });
                 if (keepaliveFlag){
-                    localStorage.setItem('user', JSON.stringify(result.user));
+                    sessionStorage.setItem('user', JSON.stringify(result.user));
                 }
         }).catch( error => alert(JSON.stringify({keepaliveFlag})));
     }

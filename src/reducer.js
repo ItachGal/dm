@@ -12,7 +12,6 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 user: action.user,
-                login_timestamp: action.keepalive ? 0:Date.now(),
             };
 
         default:
