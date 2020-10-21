@@ -19,7 +19,7 @@ function Login() {
                 if (keepaliveFlag){
                     sessionStorage.setItem('user', JSON.stringify(result.user));
                 }
-        }).catch( error => alert(JSON.stringify({keepaliveFlag})));
+        }).catch( error => console.log("Error occured in signin"));
     }
     return (
         <div className="login">
