@@ -39,6 +39,7 @@
     border-radius: 10px;
     width: fit-content;
     margin-bottom: 30px;
+    overflow-wrap: break-word;
 }
 .chat__name{
     position: absolute;
