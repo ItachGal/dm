@@ -12,7 +12,7 @@ function SidebarChat({ id, name }) {
                 setLastMessages(snapshot.docs.map((doc) => doc.data()))
             ));
         }
-    }, [id]); //TODO if issue <-
+    }, [id]); 
     return (
         <Link to={`/rooms/${id}`}>
             <div className="sidebarChat">

@@ -25,11 +25,11 @@ function Chat() {
         db.collection('rooms').doc(roomId).collection('messages').add({
             message: message,
             name: user.displayName,
+            uid: user.uid,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         setMessage("");
     }
-    console.log(JSON.stringify(messages));
     return (
         <div className="chat">
             <div className="chat__header">
@@ -54,7 +54,7 @@ function Chat() {
             </div>
             <div className="chat__body">
                 {messages.map( m => (
-                    <p className={`chat__message ${m.name === user.displayName && "chat__receiver"}`}>
+                    <p className={`chat__message ${m.uid === user.uid && "chat__receiver"}`}>
                         <span className="chat__name">{m.name}</span>
                     {m.message}
                     <span className="chat__timestamp">
